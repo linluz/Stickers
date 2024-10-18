@@ -13,6 +13,7 @@ public class Program
 
         builder.Services.AddControllers(options =>
         {
+            //todo path 会出现json解析失败的bug
             options.InputFormatters.Insert(0, Utils.GetJsonPatchInputFormatter());
             options.SuppressAsyncSuffixInActionNames = false;
         });

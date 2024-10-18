@@ -7,7 +7,9 @@ namespace Stickers.DataAccess.InMemory
     public class InMemoryDataAccessor : ISimplifiedDataAccessor
     {
         private List<IEntity> _entities = [];
-
+       
+        public InMemoryDataAccessor() { }
+        
         public InMemoryDataAccessor(IEnumerable<IEntity> entities) => _entities.AddRange(entities);
 
         public async Task<int> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : class, IEntity
